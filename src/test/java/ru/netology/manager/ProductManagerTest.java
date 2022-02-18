@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
     private final ProductRepository repository = new ProductRepository();
-    ProductManager managers = new ProductManager(repository);
-    private ru.netology.manager.Product product = new ru.netology.manager.Product();
+    //    private Product product = new Product();
     private final Smartphone Galaxy = new Smartphone(1, "SamsungGalaxyS", 15000, "Samsung");
     private final Book PetCemetery = new Book(4, "PetCemetery", 350, "StephenKing");
-    private final ru.netology.manager.Product Coffee = new ru.netology.manager.Product(9, "С1", 50);
+    private final Product Coffee = new Product(9, "С1", 50);
+    ProductManager managers = new ProductManager(repository);
 
     @Test
     public void add() {
@@ -18,8 +18,8 @@ class ProductManagerTest {
         managers.add(PetCemetery);
         managers.add(Coffee);
 
-        ru.netology.manager.Product[] expected = {Galaxy, PetCemetery, Coffee};
-        ru.netology.manager.Product[] actual = repository.findAll();
+        Product[] expected = {Galaxy, PetCemetery, Coffee};
+        Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
 
@@ -28,8 +28,8 @@ class ProductManagerTest {
         managers.add(PetCemetery);
         managers.add(Coffee);
 
-        ru.netology.manager.Product[] expected = {PetCemetery, Coffee};
-        ru.netology.manager.Product[] actual = repository.findAll();
+        Product[] expected = {PetCemetery, Coffee};
+        Product[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
     }
 
@@ -38,8 +38,8 @@ class ProductManagerTest {
     void searchBy() {
         managers.add(Galaxy);
 
-        ru.netology.manager.Product[] actual = managers.searchBy("SamsungGalaxyS");
-        ru.netology.manager.Product[] expected = new ru.netology.manager.Product[]{Galaxy};
+        Product[] actual = managers.searchBy("SamsungGalaxyS");
+        Product[] expected = new Product[]{Galaxy};
         assertArrayEquals(expected, actual);
     }
 
@@ -47,8 +47,8 @@ class ProductManagerTest {
     public void searchByPetCemetery() {
         managers.add(PetCemetery);
 
-        ru.netology.manager.Product[] expected = new ru.netology.manager.Product[]{PetCemetery};
-        ru.netology.manager.Product[] actual = managers.searchBy("PetCemetery");
+        Product[] expected = new Product[]{PetCemetery};
+        Product[] actual = managers.searchBy("PetCemetery");
         assertArrayEquals(expected, actual);
     }
 
@@ -56,16 +56,16 @@ class ProductManagerTest {
     public void searchByCoffeePetCemetery() {
         managers.add(Coffee);
 
-        ru.netology.manager.Product[] expected = new ru.netology.manager.Product[]{Coffee};
-        ru.netology.manager.Product[] actual = managers.searchBy("С1");
+        Product[] expected = new Product[]{Coffee};
+        Product[] actual = managers.searchBy("С1");
         assertArrayEquals(expected, actual);
     }
 
     @Test
     public void searchByAuthorPetCemetery() {
 
-        ru.netology.manager.Product[] expected = new ru.netology.manager.Product[]{};
-        ru.netology.manager.Product[] actual = managers.searchBy("StephenKing");
+        Product[] expected = new Product[]{};
+        Product[] actual = managers.searchBy("StephenKing");
         assertArrayEquals(expected, actual);
     }
 

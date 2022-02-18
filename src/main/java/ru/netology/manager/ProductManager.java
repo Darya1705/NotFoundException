@@ -26,7 +26,7 @@ public class ProductManager {
         return result;
     }
 
-    public boolean matches(ru.netology.manager.Product product, String search) {
+    public boolean matches(Product product, String search) {
         if (product.getName().contains(search)) {
             return true;
         } else {

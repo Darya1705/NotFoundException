@@ -1,7 +1,5 @@
 package ru.netology.manager;
 
-import ru.netology.manager.NotFoundException;
-
 public class ProductRepository {
     private Product[] products = new Product[0];
 
