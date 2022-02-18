@@ -1,4 +1,6 @@
-package ru.netology.manager;
+package ru.netology.domain;
+
+//import ru.netology.domain.Product;
 
 public class Book extends Product {
     private String author;

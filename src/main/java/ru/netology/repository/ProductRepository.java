@@ -1,4 +1,7 @@
-package ru.netology.manager;
+package ru.netology.repository;
+
+import ru.netology.domain.NotFoundException;
+import ru.netology.domain.Product;
 
 public class ProductRepository {
     private Product[] products = new Product[0];
